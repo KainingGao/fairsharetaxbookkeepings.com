@@ -87,7 +87,11 @@ function App() {
                 <p>BLACK HAWK COUNTY</p>
                 <p>Waterloo, IA, 50703, USA</p>
                 <p>+1 (515) 337-9289</p>
-                <p>email: info@fairsharetaxbookkeepings.com</p>
+                <p className="mt-2">
+                  <a href="mailto:info@fairsharetaxbookkeepings.com" className="text-teal-400 hover:text-teal-300">
+                    info@fairsharetaxbookkeepings.com
+                  </a>
+                </p>
               </div>
               <div>
                 <h3 className="text-lg font-semibold">Hours</h3>
