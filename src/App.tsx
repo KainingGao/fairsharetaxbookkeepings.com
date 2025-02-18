@@ -6,6 +6,7 @@ import TaxServices from './pages/TaxServices';
 import BookkeepingServices from './pages/BookkeepingServices';
 import Posts from './pages/Posts';
 import PostDetail from './pages/PostDetail';
+import ChatAssistant from './components/ChatAssistant'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -134,7 +135,8 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/posts/:id" element={<PostDetail />} />
         </Routes>
-
+        {/* Chat Assistant */}
+          <ChatAssistant />
         {/* Footer */}
         <footer className="bg-gray-900 text-white">
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -183,6 +185,7 @@ function App() {
               </p>
             </div>
           </div>
+          
         </footer>
       </div>
     </Router>
