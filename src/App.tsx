@@ -6,7 +6,7 @@ import TaxServices from './pages/TaxServices';
 import BookkeepingServices from './pages/BookkeepingServices';
 import Posts from './pages/Posts';
 import PostDetail from './pages/PostDetail';
-import ChatAssistant from './components/ChatAssistant'
+// import ChatAssistant from './components/ChatAssistant'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
