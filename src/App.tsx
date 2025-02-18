@@ -135,8 +135,7 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/posts/:id" element={<PostDetail />} />
         </Routes>
-        {/* Chat Assistant */}
-          <ChatAssistant />
+
         {/* Footer */}
         <footer className="bg-gray-900 text-white">
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
