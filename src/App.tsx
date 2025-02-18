@@ -4,7 +4,6 @@ import { Menu, X } from 'lucide-react';
 import Home from './pages/Home';
 import TaxServices from './pages/TaxServices';
 import BookkeepingServices from './pages/BookkeepingServices';
-import SpecialPrograms from './pages/SpecialPrograms';
 import Posts from './pages/Posts';
 import PostDetail from './pages/PostDetail';
 
@@ -20,23 +19,51 @@ function App() {
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
                 <Link to="/">
-                  <img 
-                    src="https://s3.us-east-1.amazonaws.com/kngao.online/logo.png" 
-                    alt="FairShare Logo" 
+                  <img
+                    src="https://s3.us-east-1.amazonaws.com/kngao.online/logo.png"
+                    alt="FairShare Logo"
                     className="h-12 w-auto object-contain"
                   />
                 </Link>
-                <Link to="/" className="ml-2 text-xl font-semibold">FairShare</Link>
+                <Link to="/" className="ml-2 text-xl font-semibold">
+                  FairShare
+                </Link>
               </div>
-              
+
               {/* Desktop Navigation */}
               <div className="hidden md:block">
                 <div className="flex space-x-8">
-                  <Link to="/" className="hover:bg-teal-600 px-3 py-2 rounded-md">Home</Link>
-                  <Link to="/tax-services" className="hover:bg-teal-600 px-3 py-2 rounded-md">Tax Services</Link>
-                  <Link to="/bookkeeping-services" className="hover:bg-teal-600 px-3 py-2 rounded-md">Bookkeeping</Link>
-                  <Link to="/special-programs" className="hover:bg-teal-600 px-3 py-2 rounded-md">Special Programs</Link>
-                  <Link to="/posts" className="hover:bg-teal-600 px-3 py-2 rounded-md">Posts</Link>
+                  <Link
+                    to="/"
+                    className="hover:bg-teal-600 px-3 py-2 rounded-md"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/tax-services"
+                    className="hover:bg-teal-600 px-3 py-2 rounded-md"
+                  >
+                    Tax Services
+                  </Link>
+                  <Link
+                    to="/bookkeeping-services"
+                    className="hover:bg-teal-600 px-3 py-2 rounded-md"
+                  >
+                    Bookkeeping
+                  </Link>
+                  <Link
+                    to="/posts/6"
+                    className="relative px-3 py-2 rounded-md overflow-hidden"
+                  >
+                    <span className="absolute inset-0 rounded-md bg-gradient-to-r from-teal-400 to-emerald-400 animate-pulse"></span>
+                    <span className="relative z-10">Special Programs</span>
+                  </Link>
+                  <Link
+                    to="/posts"
+                    className="hover:bg-teal-600 px-3 py-2 rounded-md"
+                  >
+                    Posts
+                  </Link>
                 </div>
               </div>
 
@@ -46,7 +73,11 @@ function App() {
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="p-2 rounded-md hover:bg-teal-600"
                 >
-                  {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                  {isMenuOpen ? (
+                    <X className="h-6 w-6" />
+                  ) : (
+                    <Menu className="h-6 w-6" />
+                  )}
                 </button>
               </div>
             </div>
@@ -56,11 +87,37 @@ function App() {
           {isMenuOpen && (
             <div className="md:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <Link to="/" className="block hover:bg-teal-600 px-3 py-2 rounded-md">Home</Link>
-                <Link to="/tax-services" className="block hover:bg-teal-600 px-3 py-2 rounded-md">Tax Services</Link>
-                <Link to="/bookkeeping-services" className="block hover:bg-teal-600 px-3 py-2 rounded-md">Bookkeeping</Link>
-                <Link to="/special-programs" className="block hover:bg-teal-600 px-3 py-2 rounded-md">Special Programs</Link>
-                <Link to="/posts" className="block hover:bg-teal-600 px-3 py-2 rounded-md">Posts</Link>
+                <Link
+                  to="/"
+                  className="block hover:bg-teal-600 px-3 py-2 rounded-md"
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/tax-services"
+                  className="block hover:bg-teal-600 px-3 py-2 rounded-md"
+                >
+                  Tax Services
+                </Link>
+                <Link
+                  to="/bookkeeping-services"
+                  className="block hover:bg-teal-600 px-3 py-2 rounded-md"
+                >
+                  Bookkeeping
+                </Link>
+                <Link
+                  to="/posts/6"
+                  className="relative block px-3 py-2 rounded-md overflow-hidden"
+                >
+                  <span className="absolute inset-0 rounded-md bg-gradient-to-r from-teal-400 to-emerald-400 animate-pulse"></span>
+                  <span className="relative z-10">Special Programs</span>
+                </Link>
+                <Link
+                  to="/posts"
+                  className="block hover:bg-teal-600 px-3 py-2 rounded-md"
+                >
+                  Posts
+                </Link>
               </div>
             </div>
           )}
@@ -70,8 +127,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tax-services" element={<TaxServices />} />
-          <Route path="/bookkeeping-services" element={<BookkeepingServices />} />
-          <Route path="/special-programs" element={<SpecialPrograms />} />
+          <Route
+            path="/bookkeeping-services"
+            element={<BookkeepingServices />}
+          />
           <Route path="/posts" element={<Posts />} />
           <Route path="/posts/:id" element={<PostDetail />} />
         </Routes>
@@ -88,7 +147,10 @@ function App() {
                 <p>Waterloo, IA, 50703, USA</p>
                 <p>+1 (515) 337-9289</p>
                 <p className="mt-2">
-                  <a href="mailto:info@fairsharetaxbookkeepings.com" className="text-teal-400 hover:text-teal-300">
+                  <a
+                    href="mailto:info@fairsharetaxbookkeepings.com"
+                    className="text-teal-400 hover:text-teal-300"
+                  >
                     info@fairsharetaxbookkeepings.com
                   </a>
                 </p>
@@ -102,14 +164,23 @@ function App() {
               <div>
                 <h3 className="text-lg font-semibold">Follow Us</h3>
                 <div className="mt-4 space-x-4">
-                  <a href="#" className="hover:text-teal-400">LinkedIn</a>
-                  <a href="#" className="hover:text-teal-400">Facebook</a>
-                  <a href="#" className="hover:text-teal-400">Twitter</a>
+                  <a href="#" className="hover:text-teal-400">
+                    LinkedIn
+                  </a>
+                  <a href="#" className="hover:text-teal-400">
+                    Facebook
+                  </a>
+                  <a href="#" className="hover:text-teal-400">
+                    Twitter
+                  </a>
                 </div>
               </div>
             </div>
             <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-              <p>&copy; 2024 FairShare Tax & Bookkeeping Services. All rights reserved.</p>
+              <p>
+                &copy; 2025 FairShare Tax & Bookkeeping Services. All rights
+                reserved.
+              </p>
             </div>
           </div>
         </footer>

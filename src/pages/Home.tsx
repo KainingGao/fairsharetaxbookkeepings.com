@@ -55,7 +55,7 @@ function Home() {
             <PiggyBank className="h-12 w-12 text-teal-600 mx-auto" />
             <h2 className="mt-2 text-3xl font-bold text-gray-900">Special Programs</h2>
             <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-              Special rates and payment plans available for low-income individuals and families. We believe everyone deserves professional financial guidance.
+              Special rates and payment plans available for low-income individuals, families and small business owners. We believe everyone deserves professional financial guidance.
             </p>
           </div>
         </div>

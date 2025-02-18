@@ -3,6 +3,20 @@ import { Link } from 'react-router-dom';
 import { FileText } from 'lucide-react';
 
 const posts = [
+    {
+    id: 7,
+    title: "Why We Support Low-Income Households and Small Business Owners",
+    excerpt: "I volunteer to help low income families and seniors with their tax returns for free over VAT/TCE. For those ineligible for free service...",
+    date: "Feb 15, 2025",
+    category: "Special Programs"
+  },
+  {
+    id: 6,
+    title: "Our Small Business Discounted Tax Preparation Program",
+    excerpt: "Learn about our special program designed to help small businesses with affordable tax preparation services and maximize their deductions.",
+    date: "March 20, 2024",
+    category: "Special Programs"
+  },
   {
     id: 1,
     title: "2024 Tax Season Updates: What You Need to Know",
