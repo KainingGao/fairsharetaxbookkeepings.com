@@ -130,58 +130,82 @@ function Contact() {
         </div>
 
         {/* Contact Form */}
-      <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 mb-16">
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-              Name
-            </label>
-            <input
-              required
-              type="text"
-              id="name"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-            />
+      <div className="max-w-2xl mx-auto mb-16">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="relative bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/50 shadow-lg">
+            {/* Gradient background effect */}
+            <div className="absolute inset-0 -z-10 rounded-3xl opacity-75 blur-2xl bg-gradient-to-br from-teal-300 via-emerald-300 to-teal-400"></div>
+            
+            {/* Name Input */}
+            <div className="relative backdrop-blur-xl bg-white/50 p-5 rounded-3xl mb-6 border border-white/50 shadow-md">
+              <label htmlFor="name" className="block ml-2 text-sm uppercase font-bold text-gray-800">
+                Name
+              </label>
+              <input
+                required
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                className="mt-1 w-full px-4 py-2 rounded-3xl bg-white/90 transition-all duration-300 outline-none focus:bg-gray-900 focus:text-white hover:bg-gray-900 hover:text-white border border-transparent hover:border-gray-600"
+              />
+              <p className="mt-1 text-xs text-center font-semibold text-gray-600">
+                How should we address you?
+              </p>
+            </div>
+
+            {/* Email Input */}
+            <div className="relative backdrop-blur-xl bg-white/50 p-5 rounded-3xl mb-6 border border-white/50 shadow-md">
+              <label htmlFor="email" className="block ml-2 text-sm uppercase font-bold text-gray-800">
+                Email
+              </label>
+              <input
+                required
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                className="mt-1 w-full px-4 py-2 rounded-3xl bg-white/90 transition-all duration-300 outline-none focus:bg-gray-900 focus:text-white hover:bg-gray-900 hover:text-white border border-transparent hover:border-gray-600"
+              />
+              <p className="mt-1 text-xs text-center font-semibold text-gray-600">
+                Where can we reach you?
+              </p>
+            </div>
+
+            {/* Message Input */}
+            <div className="relative backdrop-blur-xl bg-white/50 p-5 rounded-3xl mb-6 border border-white/50 shadow-md">
+              <label htmlFor="message" className="block ml-2 text-sm uppercase font-bold text-gray-800">
+                Message
+              </label>
+              <textarea
+                required
+                id="message"
+                rows={4}
+                placeholder="Type your message here"
+                className="mt-1 w-full px-4 py-2 rounded-3xl bg-white/90 transition-all duration-300 outline-none focus:bg-gray-900 focus:text-white hover:bg-gray-900 hover:text-white resize-none border border-transparent hover:border-gray-600"
+              ></textarea>
+              <p className="mt-1 text-xs text-center font-semibold text-gray-600">
+                What would you like to tell us?
+              </p>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full flex justify-center items-center px-6 py-3 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border border-white/20"
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="h-5 w-5 mr-2 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Send className="h-5 w-5 mr-2" />
+                  Send Message
+                </>
+              )}
+            </button>
           </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              required
-              type="email"
-              id="email"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-              Message
-            </label>
-            <textarea
-              required
-              id="message"
-              rows={4}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full flex justify-center items-center px-4 py-3 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-md hover:from-teal-700 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-          >
-            {isSubmitting ? (
-              <>
-                <Loader2 className="h-5 w-5 mr-2 animate-spin" />
-                Sending...
-              </>
-            ) : (
-              <>
-                <Send className="h-5 w-5 mr-2" />
-                Send Message
-              </>
-            )}
-          </button>
         </form>
       </div>
 
