@@ -132,12 +132,12 @@ function Contact() {
         {/* Contact Form */}
       <div className="max-w-2xl mx-auto mb-16">
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="relative bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/50 shadow-lg">
-            {/* Gradient background effect */}
-            <div className="absolute inset-0 -z-10 rounded-3xl opacity-75 blur-2xl bg-gradient-to-br from-teal-300 via-emerald-300 to-teal-400"></div>
+          <div className="relative bg-white p-8 rounded-2xl shadow-xl">
+            {/* Gradient border effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-teal-600 to-emerald-600 rounded-2xl blur opacity-25"></div>
             
             {/* Name Input */}
-            <div className="relative backdrop-blur-xl bg-white/50 p-5 rounded-3xl mb-6 border border-white/50 shadow-md">
+            <div className="relative bg-white p-5 rounded-xl shadow-md mb-6">
               <label htmlFor="name" className="block ml-2 text-sm uppercase font-bold text-gray-800">
                 Name
               </label>
@@ -146,7 +146,7 @@ function Contact() {
                 type="text"
                 id="name"
                 placeholder="Enter your name"
-                className="mt-1 w-full px-4 py-2 rounded-3xl bg-white/90 transition-all duration-300 outline-none focus:bg-gray-900 focus:text-white hover:bg-gray-900 hover:text-white border border-transparent hover:border-gray-600"
+                className="mt-1 w-full px-4 py-2 rounded-xl bg-white transition-all duration-300 outline-none border border-gray-200 focus:border-teal-500 hover:border-teal-500"
               />
               <p className="mt-1 text-xs text-center font-semibold text-gray-600">
                 How should we address you?
@@ -154,7 +154,7 @@ function Contact() {
             </div>
 
             {/* Email Input */}
-            <div className="relative backdrop-blur-xl bg-white/50 p-5 rounded-3xl mb-6 border border-white/50 shadow-md">
+            <div className="relative bg-white p-5 rounded-xl shadow-md mb-6">
               <label htmlFor="email" className="block ml-2 text-sm uppercase font-bold text-gray-800">
                 Email
               </label>
@@ -163,7 +163,7 @@ function Contact() {
                 type="email"
                 id="email"
                 placeholder="Enter your email"
-                className="mt-1 w-full px-4 py-2 rounded-3xl bg-white/90 transition-all duration-300 outline-none focus:bg-gray-900 focus:text-white hover:bg-gray-900 hover:text-white border border-transparent hover:border-gray-600"
+                className="mt-1 w-full px-4 py-2 rounded-xl bg-white transition-all duration-300 outline-none border border-gray-200 focus:border-teal-500 hover:border-teal-500"
               />
               <p className="mt-1 text-xs text-center font-semibold text-gray-600">
                 Where can we reach you?
@@ -171,7 +171,7 @@ function Contact() {
             </div>
 
             {/* Message Input */}
-            <div className="relative backdrop-blur-xl bg-white/50 p-5 rounded-3xl mb-6 border border-white/50 shadow-md">
+            <div className="relative bg-white p-5 rounded-xl shadow-md mb-6">
               <label htmlFor="message" className="block ml-2 text-sm uppercase font-bold text-gray-800">
                 Message
               </label>
@@ -180,7 +180,7 @@ function Contact() {
                 id="message"
                 rows={4}
                 placeholder="Type your message here"
-                className="mt-1 w-full px-4 py-2 rounded-3xl bg-white/90 transition-all duration-300 outline-none focus:bg-gray-900 focus:text-white hover:bg-gray-900 hover:text-white resize-none border border-transparent hover:border-gray-600"
+                className="mt-1 w-full px-4 py-2 rounded-xl bg-white transition-all duration-300 outline-none border border-gray-200 focus:border-teal-500 hover:border-teal-500 resize-none"
               ></textarea>
               <p className="mt-1 text-xs text-center font-semibold text-gray-600">
                 What would you like to tell us?
@@ -191,7 +191,7 @@ function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex justify-center items-center px-6 py-3 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border border-white/20"
+              className="w-full flex justify-center items-center px-6 py-3 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               {isSubmitting ? (
                 <>
