@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calculator, FileCheck, DollarSign, ClipboardCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function TaxServices() {
   return (
@@ -97,9 +98,12 @@ function TaxServices() {
             <p className="mt-4 text-xl text-teal-100">
               Contact us today for a free consultation
             </p>
-            <button className="mt-8 bg-white text-teal-700 px-6 py-3 rounded-md font-semibold hover:bg-teal-50 transition-colors">
-              Schedule Consultation
-            </button>
+            <Link 
+              to="/contact" 
+              className="mt-8 inline-block bg-white text-teal-700 px-6 py-3 rounded-md font-semibold hover:bg-teal-50 transition-colors"
+            >
+                Get Started
+            </Link>
           </div>
         </div>
       </div>
