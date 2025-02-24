@@ -1,44 +1,73 @@
-import React from 'react';
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Clock, Send, Loader2 } from 'lucide-react';
 import ChatWidget from '../components/ChatWidget';
+import Notification from '../components/Notification';
 
 function Contact() {
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        
-        const formData = {
-          name: (e.currentTarget.querySelector('#name') as HTMLInputElement).value,
-          email: (e.currentTarget.querySelector('#email') as HTMLInputElement).value,
-          message: (e.currentTarget.querySelector('#message') as HTMLTextAreaElement).value,
-        };
-      
-        try {
-          const response = await fetch('https://fairshare-backend-sean.onrender.com/api/contact/submit', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-          });
-      
-          const data = await response.json();
-      
-          if (data.success) {
-            // Clear form
-            (e.target as HTMLFormElement).reset();
-            // Show success message
-            alert('Thank you for your message. We will get back to you soon!');
-          } else {
-            throw new Error(data.message);
-          }
-        } catch (error) {
-          console.error('Error submitting form:', error);
-          alert('There was an error sending your message. Please try again later.');
-        }
-      };
-      
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notification, setNotification] = useState<{
+    show: boolean;
+    type: 'success' | 'error';
+    message: string;
+  }>({
+    show: false,
+    type: 'success',
+    message: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = {
+      name: (e.currentTarget.querySelector('#name') as HTMLInputElement).value,
+      email: (e.currentTarget.querySelector('#email') as HTMLInputElement).value,
+      message: (e.currentTarget.querySelector('#message') as HTMLTextAreaElement).value,
+    };
+  
+    try {
+      const response = await fetch('https://fairshare-backend-sean.onrender.com/api/contact/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      const data = await response.json();
+  
+      if (data.success) {
+        // Clear form
+        (e.target as HTMLFormElement).reset();
+        // Show success notification
+        setNotification({
+          show: true,
+          type: 'success',
+          message: 'Thank you for your message. We will get back to you soon!'
+        });
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setNotification({
+        show: true,
+        type: 'error',
+        message: 'There was an error sending your message. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12">
+      <Notification
+        show={notification.show}
+        type={notification.type}
+        message={notification.message}
+        onClose={() => setNotification(prev => ({ ...prev, show: false }))}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -101,47 +130,60 @@ function Contact() {
         </div>
 
         {/* Contact Form */}
-        <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 mb-16">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows={4}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full flex justify-center items-center px-4 py-3 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-md hover:from-teal-700 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transform hover:-translate-y-0.5 transition-all duration-200"
-            >
-              <Send className="h-5 w-5 mr-2" />
-              Send Message
-            </button>
-          </form>
-        </div>
+      <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 mb-16">
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              Name
+            </label>
+            <input
+              required
+              type="text"
+              id="name"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
+            <input
+              required
+              type="email"
+              id="email"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+            />
+          </div>
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+              Message
+            </label>
+            <textarea
+              required
+              id="message"
+              rows={4}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full flex justify-center items-center px-4 py-3 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-md hover:from-teal-700 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="h-5 w-5 mr-2 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              <>
+                <Send className="h-5 w-5 mr-2" />
+                Send Message
+              </>
+            )}
+          </button>
+        </form>
+      </div>
 
 
         {/* AI Chat Section */}
