@@ -3,6 +3,291 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
 const posts = {
+  9: {
+    title: "Strategic Retirement Contributions: A Tax-Efficient Approach to Wealth Building",
+    date: "February 26, 2025",
+    category: "Tax Planning",
+    content: `
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Understanding the Tax Benefits of Retirement Contributions</h2>
+          <p class="mb-4">
+            One of the most effective and accessible strategies for reducing your taxable income is making strategic contributions to retirement accounts. These contributions not only help secure your financial future but can also provide immediate tax benefits.
+          </p>
+          <p class="mb-4">
+            The tax advantages of retirement contributions are substantial: many retirement plans allow you to contribute pre-tax dollars, effectively reducing your taxable income for the current year while building wealth for the future.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Traditional 401(k) and IRA Contributions</h2>
+          
+          <h3 class="text-xl font-semibold mb-4">401(k) Plans: Employer-Sponsored Tax Advantages</h3>
+          <p class="mb-4">
+            Contributing to a traditional 401(k) plan is one of the most straightforward ways to reduce your taxable income:
+          </p>
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Contributions are made with pre-tax dollars, directly reducing your taxable income</li>
+            <li>For 2025, you can contribute up to $23,500 ($30,500 if you're 50 or older with catch-up contributions)</li>
+            <li>Many employers offer matching contributions—essentially free money that also grows tax-deferred</li>
+          </ul>
+          
+          <div class="bg-blue-50 p-4 border-l-4 border-blue-400 mb-6">
+            <p class="font-semibold">Example:</p>
+            <p>If your annual salary is $80,000 and you contribute $10,000 to your 401(k), your taxable income drops to $70,000. In the 22% tax bracket, this saves you $2,200 in federal income taxes for the year.</p>
+          </div>
+          
+          <h3 class="text-xl font-semibold mb-4">Traditional IRAs: Individual Tax Control</h3>
+          <p class="mb-4">
+            Individual Retirement Accounts (IRAs) offer similar tax advantages:
+          </p>
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>For 2025, you can contribute up to $7,000 ($8,000 if you're 50 or older)</li>
+            <li>Contributions may be tax-deductible depending on your income and whether you have access to an employer plan</li>
+            <li>Even partial deductibility can help reduce your tax burden</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Self-Employed Retirement Options</h2>
+          
+          <p class="mb-4">
+            Self-employed individuals have access to even more powerful retirement savings vehicles:
+          </p>
+          
+          <h3 class="text-xl font-semibold mb-4">SEP IRAs</h3>
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Contribute up to 25% of your net self-employment income or $69,000 (2025), whichever is less</li>
+            <li>Contributions are tax-deductible, significantly reducing self-employment tax liability</li>
+            <li>Simple to establish and maintain with minimal paperwork</li>
+          </ul>
+          
+          <h3 class="text-xl font-semibold mb-4">Solo 401(k) Plans</h3>
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Make contributions as both employer and employee</li>
+            <li>Potentially contribute more than with a SEP IRA at the same income level</li>
+            <li>Total contributions can reach up to $69,000 in 2025 ($76,500 if age 50+)</li>
+          </ul>
+          
+          <div class="bg-yellow-50 p-4 border-l-4 border-yellow-400 mb-6">
+            <p class="font-semibold">Tax Planning Tip:</p>
+            <p>Self-employed individuals can potentially establish and fund a retirement plan up until the tax filing deadline (including extensions), allowing for tax planning even after the calendar year ends.</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Strategic Timing of Contributions</h2>
+          
+          <p class="mb-4">
+            When you make your contributions can be almost as important as how much you contribute:
+          </p>
+          
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li><strong>Early-year contributions</strong> maximize tax-deferred growth potential</li>
+            <li><strong>Year-end contributions</strong> allow for more precise tax planning when you know your annual income</li>
+            <li><strong>IRA contributions</strong> can be made until the tax filing deadline (typically April 15) for the previous tax year</li>
+          </ul>
+          
+          <p class="mb-4">
+            For those with variable income, consider setting aside funds in a savings account throughout the year, then making a lump-sum contribution when you have better visibility into your tax situation.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Beyond Traditional Retirement Accounts</h2>
+          
+          <h3 class="text-xl font-semibold mb-4">Health Savings Accounts (HSAs)</h3>
+          <p class="mb-4">
+            HSAs offer a unique triple tax advantage:
+          </p>
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Contributions are tax-deductible</li>
+            <li>Growth is tax-free</li>
+            <li>Withdrawals for qualified medical expenses are tax-free</li>
+            <li>For 2025, you can contribute up to $4,150 for individual coverage or $8,300 for family coverage (with an additional $1,000 catch-up contribution if you're 55 or older)</li>
+          </ul>
+          
+          <p class="mb-4">
+            After age 65, HSA funds can be withdrawn for any purpose (subject to ordinary income tax but no penalties), effectively functioning as an additional retirement account.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Balancing Roth and Traditional Contributions</h2>
+          
+          <p class="mb-4">
+            While traditional retirement accounts offer immediate tax benefits, Roth accounts provide tax-free growth and withdrawals in retirement:
+          </p>
+          
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Consider your current tax bracket versus your expected retirement tax bracket</li>
+            <li>Higher-income earners often benefit more from traditional pre-tax contributions</li>
+            <li>Those early in their careers may benefit from Roth contributions while in lower tax brackets</li>
+            <li>A mix of both traditional and Roth accounts provides tax diversification in retirement</li>
+          </ul>
+          
+          <div class="bg-green-50 p-4 border-l-4 border-green-400 mb-6">
+            <p class="font-semibold">Strategic Approach:</p>
+            <p>Consider a "tax bracket filling" strategy—make traditional contributions to lower your income to the top of a lower tax bracket, then make Roth contributions for additional retirement savings.</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Maximizing Employer Benefits</h2>
+          
+          <p class="mb-4">
+            Don't leave money on the table when it comes to employer retirement benefits:
+          </p>
+          
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Always contribute at least enough to get the full employer match—this is essentially free money</li>
+            <li>Take advantage of automatic contribution increases if offered by your plan</li>
+            <li>Consider after-tax contributions if your plan allows them (which may later be converted to Roth)</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Need Help Optimizing Your Retirement Contributions?</h2>
+          
+          <p class="mb-4 bg-yellow-50 p-4 border-l-4 border-yellow-400">
+            <strong>Special Note for Seniors:</strong> For those seniors, whose taxable income is lower than his (or her) standard deduction, can avoid filing tax return if you don't have any tax withheld in your 1099-SSA or request to not withhold any tax on that, especially when the weather is not getting better in the tax season.
+          </p>
+          
+          <p class="mb-4">
+            Retirement contribution strategies should be part of your overall financial and tax planning. Our tax professionals can help you:
+          </p>
+          
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Determine the optimal contribution amounts based on your tax situation</li>
+            <li>Balance pre-tax and Roth contributions</li>
+            <li>Identify additional tax-saving opportunities</li>
+            <li>Develop a comprehensive retirement savings strategy</li>
+          </ul>
+          
+          <p class="mt-6 font-semibold">
+            Contact us today for a personalized consultation to optimize your retirement contributions and minimize your tax burden.
+          </p>
+        </div>
+      </div>
+    `
+  },
+  8: {
+    title: "Do I Need to File a Tax Return This Year?",
+    date: "February 26, 2025",
+    category: "Tax Tips",
+    content: `
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Understanding Filing Requirements</h2>
+          <p class="mb-4">
+            Not everyone is required to file a tax return each year. Whether you need to file depends on several factors, including your income level, filing status, age, and specific financial situations.
+          </p>
+          <p class="mb-4">
+            However, even if you're not required to file, you might want to do so anyway if you're eligible for refundable tax credits or had federal income tax withheld from your pay.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Income Thresholds for Filing (2024 Tax Year)</h2>
+          
+          <h3 class="text-xl font-semibold mb-4">For Single Filers:</h3>
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Under 65: You must file if your gross income was at least $13,850</li>
+            <li>65 or older: You must file if your gross income was at least $15,700</li>
+          </ul>
+          
+          <h3 class="text-xl font-semibold mb-4">For Married Filing Jointly:</h3>
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Both spouses under 65: You must file if your gross income was at least $27,700</li>
+            <li>One spouse 65 or older: You must file if your gross income was at least $29,200</li>
+            <li>Both spouses 65 or older: You must file if your gross income was at least $30,700</li>
+          </ul>
+          
+          <h3 class="text-xl font-semibold mb-4">For Head of Household:</h3>
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Under 65: You must file if your gross income was at least $20,800</li>
+            <li>65 or older: You must file if your gross income was at least $22,650</li>
+          </ul>
+          
+          <h3 class="text-xl font-semibold mb-4">For Married Filing Separately:</h3>
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Any age: You must file if your gross income was at least $5</li>
+          </ul>
+          
+          <p class="mt-4 italic text-gray-600">
+            Note: These thresholds are subject to change each year. Always check the latest IRS guidelines or consult with a tax professional.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Special Situations That Require Filing</h2>
+          
+          <p class="mb-4">
+            Even if your income is below the thresholds above, you may still need to file if:
+          </p>
+          
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>You're self-employed with net earnings of $400 or more</li>
+            <li>You owe special taxes (like alternative minimum tax, household employment taxes, etc.)</li>
+            <li>You received advance payments of the premium tax credit</li>
+            <li>You had wages of $108.28 or more from a church or qualified church-controlled organization exempt from employer Social Security and Medicare taxes</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Reasons to File Even If Not Required</h2>
+          
+          <p class="mb-4">
+            You might want to file a tax return even if you're not required to if:
+          </p>
+          
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>You had federal income tax withheld from your pay and want to get a refund</li>
+            <li>You qualify for refundable tax credits like the Earned Income Tax Credit (EITC), Child Tax Credit, or American Opportunity Credit</li>
+            <li>You want to claim a refund for overpaid Social Security or Medicare taxes</li>
+            <li>You need to establish a record of income for loan applications, government benefits, or other purposes</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Dependents with Income</h2>
+          
+          <p class="mb-4">
+            If you can be claimed as a dependent on someone else's return, different filing requirements apply. Generally, dependents must file if:
+          </p>
+          
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Their unearned income (such as interest or dividends) exceeds $1,250</li>
+            <li>Their earned income (such as wages) exceeds $13,850</li>
+            <li>Their gross income exceeds the larger of $1,250 or their earned income (up to $13,850) plus $400</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Need Help Determining If You Should File?</h2>
+          
+          <p class="mb-4 bg-yellow-50 p-4 border-l-4 border-yellow-400">
+            <strong>Special Note for Seniors:</strong> For those seniors, whose taxable income is lower than his (or her) standard deduction, can avoid filing tax return if you don't have any tax withheld in your 1099-SSA or request to not withhold any tax on that, especially when the weather is not getting better in the tax season.
+          </p>
+          
+          <p class="mb-4">
+            If you're unsure whether you need to file a tax return, we can help. Our tax professionals can review your specific situation and provide guidance on:
+          </p>
+          
+          <ul class="list-disc pl-6 mb-4 space-y-2">
+            <li>Whether you're required to file based on your income and situation</li>
+            <li>What tax credits you might be eligible for</li>
+            <li>How to maximize your potential refund</li>
+            <li>The best filing status for your situation</li>
+          </ul>
+          
+          <p class="mt-6 font-semibold">
+            Contact us today for a free consultation to determine your filing requirements and maximize your potential refund.
+          </p>
+        </div>
+      </div>
+    `
+  },
   7: {
   title: "Why We Support Low-Income Households and Small Business Owners",
   date: "Feb 15, 2025",

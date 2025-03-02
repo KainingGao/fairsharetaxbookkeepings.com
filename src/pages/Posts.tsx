@@ -3,7 +3,21 @@ import { Link } from 'react-router-dom';
 import { FileText } from 'lucide-react';
 
 const posts = [
+  {
+    id: 9,
+    title: "Strategic Retirement Contributions: A Tax-Efficient Approach to Wealth Building",
+    excerpt: "Learn how strategic contributions to retirement plans can significantly reduce your taxable income while building long-term wealth.",
+    date: "February 26, 2025",
+    category: "Tax Planning"
+  },
     {
+    id: 8,
+    title: "Do I Need to File a Tax Return This Year?",
+    excerpt: "Understanding the filing requirements for different situations and income levels to determine if you need to file a tax return this year.",
+    date: "February 26, 2025",
+    category: "Tax Tips"
+  },  
+  {
     id: 7,
     title: "Why We Support Low-Income Households and Small Business Owners",
     excerpt: "I volunteer to help low income families and seniors with their tax returns for free over VAT/TCE. For those ineligible for free service...",
