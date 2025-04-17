@@ -79,7 +79,7 @@ function Home() {
                   <p className="text-gray-600 leading-relaxed mb-6">
                     Special rates and payment plans available for low-income individuals, families and small business owners. We believe everyone deserves professional financial guidance.
                   </p>
-                  <Link to="/posts/6" className="inline-flex items-center text-teal-600 font-semibold hover:text-teal-700 transition-colors">
+                  <Link to="/posts/6800ab4d4e58189b0389601c" className="inline-flex items-center text-teal-600 font-semibold hover:text-teal-700 transition-colors">
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </div>
