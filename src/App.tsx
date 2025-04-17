@@ -20,22 +20,19 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-20">
               <div className="flex items-center">
-                <Link 
-                  to="/" 
-                  className="flex items-center space-x-3 group"
-                >
-                  <div className="relative">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-teal-600 to-emerald-600 rounded-full blur opacity-25 group-hover:opacity-75 transition-all duration-300"></div>
-                    <img
-                      src="https://s3.us-east-1.amazonaws.com/kngao.online/logo.png"
-                      alt="FairShare Logo"
-                      className="relative h-12 w-12 object-contain rounded-full"
-                    />
-                  </div>
-                  <span className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
-                    FairShare
-                  </span>
-                </Link>
+              <Link 
+                to="/" 
+                className="group"
+              >
+                
+                
+                <img
+                  src="https://s3.us-east-1.amazonaws.com/kngao.online/fslogo.png"
+                  alt="FairShare Logo"
+                  className="h-52 object-contain"
+                />
+              
+              </Link>
               </div>
 
               {/* Desktop Navigation */}
