@@ -1,74 +1,80 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FileText } from 'lucide-react';
+import { FileText, Loader } from 'lucide-react';
 
-const posts = [
-  {
-    id: 9,
-    title: "Strategic Retirement Contributions: A Tax-Efficient Approach to Wealth Building",
-    excerpt: "Learn how strategic contributions to retirement plans can significantly reduce your taxable income while building long-term wealth.",
-    date: "February 26, 2025",
-    category: "Tax Planning"
-  },
-    {
-    id: 8,
-    title: "Do I Need to File a Tax Return This Year?",
-    excerpt: "Understanding the filing requirements for different situations and income levels to determine if you need to file a tax return this year.",
-    date: "February 26, 2025",
-    category: "Tax Tips"
-  },  
-  {
-    id: 7,
-    title: "Why We Support Low-Income Households and Small Business Owners",
-    excerpt: "I volunteer to help low income families and seniors with their tax returns for free over VAT/TCE. For those ineligible for free service...",
-    date: "Feb 15, 2025",
-    category: "Special Programs"
-  },
-  {
-    id: 6,
-    title: "Our Small Business Discounted Tax Preparation Program",
-    excerpt: "Learn about our special program designed to help small businesses with affordable tax preparation services and maximize their deductions.",
-    date: "March 20, 2024",
-    category: "Special Programs"
-  },
-  {
-    id: 1,
-    title: "2024 Tax Season Updates: What You Need to Know",
-    excerpt: "Important changes to tax laws and deadlines for the 2024 tax season that affect individual and business filers.",
-    date: "March 15, 2024",
-    category: "Tax Updates"
-  },
-  {
-    id: 2,
-    title: "Small Business Bookkeeping: Best Practices for Success",
-    excerpt: "Essential bookkeeping tips and strategies to help small businesses maintain accurate financial records.",
-    date: "March 10, 2024",
-    category: "Bookkeeping"
-  },
-  {
-    id: 3,
-    title: "Understanding Tax Deductions for Remote Workers",
-    excerpt: "A comprehensive guide to tax deductions available for employees working from home.",
-    date: "March 5, 2024",
-    category: "Tax Tips"
-  },
-  {
-    id: 4,
-    title: "Financial Planning for Small Business Owners",
-    excerpt: "Strategic approaches to managing business finances and planning for future growth.",
-    date: "February 28, 2024",
-    category: "Business Planning"
-  },
-  {
-    id: 5,
-    title: "Maximizing Your Tax Refund: Expert Tips",
-    excerpt: "Professional advice on how to ensure you're claiming all eligible deductions and credits.",
-    date: "February 20, 2024",
-    category: "Tax Tips"
-  }
-];
+interface Post {
+  _id: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  date: string;
+  rank: number;
+}
 
 function Posts() {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setLoading(true);
+        // Fetch from backend API
+        const response = await fetch('https://fairshare-backend-sean.onrender.com/api/blogs');
+        
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // Sort posts by rank (highest to lowest)
+        const sortedPosts = [...data].sort((a, b) => (b.rank || 0) - (a.rank || 0));
+        setPosts(sortedPosts);
+      } catch (err) {
+        console.error('Error fetching posts:', err);
+        setError('Failed to load posts. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  // Function to format date from MongoDB ISO string to readable format
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  if (loading) {
+    return (
+      <div className="py-12 flex justify-center items-center">
+        <Loader className="h-12 w-12 text-teal-600 animate-spin" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="py-12 text-center">
+        <p className="text-red-500">{error}</p>
+        <button 
+          onClick={() => window.location.reload()}
+          className="mt-4 bg-teal-600 text-white px-4 py-2 rounded-md"
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="py-12">
       {/* Header */}
@@ -84,32 +90,36 @@ function Posts() {
 
       {/* Posts Grid */}
       <div className="mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8">
-          {posts.map((post) => (
-            <Link 
-              key={post.id}
-              to={`/posts/${post.id}`}
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
-            >
-              <div className="p-6">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <span className="inline-block px-3 py-1 rounded-full text-sm font-semibold text-teal-700 bg-teal-100">
-                      {post.category}
-                    </span>
-                    <h2 className="mt-3 text-2xl font-bold text-gray-900">{post.title}</h2>
-                    <p className="mt-2 text-gray-600">{post.excerpt}</p>
+        {posts.length === 0 ? (
+          <p className="text-center text-gray-500">No posts available at the moment.</p>
+        ) : (
+          <div className="grid gap-8">
+            {posts.map((post) => (
+              <Link 
+                key={post._id}
+                to={`/posts/${post._id}`}
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
+              >
+                <div className="p-6">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <span className="inline-block px-3 py-1 rounded-full text-sm font-semibold text-teal-700 bg-teal-100">
+                        {post.category}
+                      </span>
+                      <h2 className="mt-3 text-2xl font-bold text-gray-900">{post.title}</h2>
+                      <p className="mt-2 text-gray-600">{post.excerpt}</p>
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center text-sm text-gray-500">
+                    <span>{formatDate(post.date)}</span>
+                    <span className="mx-2">•</span>
+                    <span>Read more →</span>
                   </div>
                 </div>
-                <div className="mt-4 flex items-center text-sm text-gray-500">
-                  <span>{post.date}</span>
-                  <span className="mx-2">•</span>
-                  <span>Read more →</span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
