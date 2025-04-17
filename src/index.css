@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom typography fixes for gradient headings */
+@layer components {
+    /* Fix for gradient headings with descenders */
+    h1, h2, h3, h4, h5, h6 {
+      overflow: visible;
+    }
+  
+    /* Specifically target gradient text */
+    .bg-clip-text {
+      padding-bottom: 0.15em;
+      line-height: 1.3;
+      overflow: visible;
+    }
+  
+    /* Improve spacing around headings */
+    h1, h2, h3 {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  }

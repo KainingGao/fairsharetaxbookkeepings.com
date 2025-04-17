@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FileText, Loader } from 'lucide-react';
+import { FileText, Loader, Clock, Tag, ArrowRight } from 'lucide-react';
 
 interface Post {
   _id: string;
@@ -55,68 +55,94 @@ function Posts() {
 
   if (loading) {
     return (
-      <div className="py-12 flex justify-center items-center">
-        <Loader className="h-12 w-12 text-teal-600 animate-spin" />
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 flex justify-center items-center">
+        <div className="text-center">
+          <Loader className="h-12 w-12 text-teal-600 animate-spin mx-auto" />
+          <p className="mt-4 text-gray-600">Loading posts...</p>
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="py-12 text-center">
-        <p className="text-red-500">{error}</p>
-        <button 
-          onClick={() => window.location.reload()}
-          className="mt-4 bg-teal-600 text-white px-4 py-2 rounded-md"
-        >
-          Retry
-        </button>
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-white p-8 rounded-2xl shadow-xl">
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl blur opacity-25"></div>
+              <div className="relative bg-white p-6 rounded-xl">
+                <p className="text-red-500 text-lg font-semibold">{error}</p>
+                <button 
+                  onClick={() => window.location.reload()}
+                  className="mt-6 px-6 py-2 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  Retry
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="py-12">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <FileText className="h-12 w-12 text-teal-600 mx-auto" />
-          <h1 className="mt-2 text-4xl font-bold text-gray-900">Financial Insights</h1>
-          <p className="mt-4 text-xl text-gray-500">
+          <h1 className="mt-2 text-4xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+            Financial Insights
+          </h1>
+          <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
             Expert advice and updates on taxes, bookkeeping, and financial management
           </p>
         </div>
       </div>
 
       {/* Posts Grid */}
-      <div className="mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mt-12 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {posts.length === 0 ? (
-          <p className="text-center text-gray-500">No posts available at the moment.</p>
+          <div className="bg-white p-8 rounded-2xl shadow-xl text-center">
+            <p className="text-gray-600">No posts available at the moment.</p>
+          </div>
         ) : (
-          <div className="grid gap-8">
+          <div className="space-y-8">
             {posts.map((post) => (
-              <Link 
-                key={post._id}
-                to={`/posts/${post._id}`}
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
-              >
-                <div className="p-6">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <span className="inline-block px-3 py-1 rounded-full text-sm font-semibold text-teal-700 bg-teal-100">
-                        {post.category}
-                      </span>
-                      <h2 className="mt-3 text-2xl font-bold text-gray-900">{post.title}</h2>
-                      <p className="mt-2 text-gray-600">{post.excerpt}</p>
+              <div key={post._id} className="group">
+                <div className="relative transform transition-all duration-300 group-hover:scale-102">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-teal-600 to-emerald-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition-all duration-300"></div>
+                  <Link 
+                    to={`/posts/${post._id}`}
+                    className="relative block bg-white rounded-2xl shadow-xl overflow-hidden"
+                  >
+                    <div className="p-8">
+                      <div className="flex items-center space-x-2 mb-4">
+                        <Tag className="h-4 w-4 text-teal-600" />
+                        <span className="text-sm font-semibold text-teal-600">
+                          {post.category}
+                        </span>
+                      </div>
+                      
+                      <h2 className="text-2xl font-bold text-gray-900 mb-3">{post.title}</h2>
+                      <p className="text-gray-600 mb-6">{post.excerpt}</p>
+                      
+                      <div className="flex justify-between items-center">
+                        <div className="flex items-center text-sm text-gray-500">
+                          <Clock className="h-4 w-4 mr-1" />
+                          <span>{formatDate(post.date)}</span>
+                        </div>
+                        <div className="flex items-center text-sm font-medium text-teal-600 group-hover:text-teal-700 transition-colors">
+                          <span>Read more</span>
+                          <ArrowRight className="h-4 w-4 ml-1 group-hover:ml-2 transition-all duration-200" />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="mt-4 flex items-center text-sm text-gray-500">
-                    <span>{formatDate(post.date)}</span>
-                    <span className="mx-2">•</span>
-                    <span>Read more →</span>
-                  </div>
+                  </Link>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         )}
